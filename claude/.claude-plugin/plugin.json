@@ -1,0 +1,25 @@
+{
+  "name": "selects",
+  "displayName": "Selects",
+  "version": "0.1.0",
+  "description": "Connect to the Selects production browser editor and edit videos through the Selects SDK from Claude Code.",
+  "author": {
+    "name": "Cutback",
+    "url": "https://www.tryselects.com"
+  },
+  "homepage": "https://www.tryselects.com",
+  "repository": "https://github.com/CutbackVideo/selects-agent-plugin.git",
+  "keywords": ["selects", "video", "video-editing", "transcript", "captions", "mcp"],
+  "mcpServers": {
+    "selects": {
+      "type": "http",
+      "url": "https://selects-api.cutback.video/mcp-gateway/mcp",
+      "oauth": {
+        "clientId": "selects-claude-code-20261103",
+        "callbackPort": 17528,
+        "scopes": "selects:control"
+      }
+    }
+  },
+  "skills": "./skills/"
+}

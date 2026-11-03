@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "selects-gateway": {
+      "type": "streamable-http",
+      "url": "https://selects-api.cutback.video/mcp-gateway/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "provided",
+              "clientId": "selects-production-desktop-20261101",
+              "tokenEndpointAuthMethod": "none"
+            },
+            "baseScopes": [
+              "selects:control",
+              "offline_access"
+            ],
+            "resource": "https://selects-api.cutback.video/mcp-gateway/mcp",
+            "authorizationUrl": "https://silly-lumiere-7p4j599sww.projects.oryapis.com/oauth2/auth",
+            "tokenUrl": "https://silly-lumiere-7p4j599sww.projects.oryapis.com/oauth2/token"
+          }
+        }
+      },
+      "oauth": {
+        "clientId": "selects-production-desktop-20261101",
+        "callbackUrl": "http://127.0.0.1:17526/callback/xLV1pWSKgxA0",
+        "callbackPort": 17526
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "selects",
+  "owner": {
+    "name": "Cutback",
+    "url": "https://www.tryselects.com"
+  },
+  "metadata": {
+    "description": "Selects plugins for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "selects",
+      "source": "./claude",
+      "description": "Edit videos in the Selects browser editor from Claude Code: open projects, edit drafts from transcripts, tighten pacing, add captions and preview the result.",
+      "category": "productivity",
+      "homepage": "https://www.tryselects.com",
+      "author": {
+        "name": "Cutback",
+        "url": "https://www.tryselects.com"
+      },
+      "keywords": ["selects", "video", "video-editing", "transcript", "captions", "mcp"]
+    }
+  ]
+}

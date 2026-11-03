@@ -1,0 +1,31 @@
+{
+  "name": "selects-editor",
+  "version": "0.1.4",
+  "description": "Connect to the Selects production browser editor and edit through the Selects SDK.",
+  "author": {
+    "name": "Cutback"
+  },
+  "interface": {
+    "capabilities": [
+      "Edit video",
+      "Preview drafts"
+    ],
+    "category": "Creativity",
+    "composerIcon": "./assets/selects-logo.png",
+    "defaultPrompt": [
+      "Connect to Selects and open its editor"
+    ],
+    "developerName": "Cutback",
+    "displayName": "Selects",
+    "logo": "./assets/selects-logo.png",
+    "logoDark": "./assets/selects-logo.png",
+    "longDescription": "Edit videos in the Selects browser editor through your connected account. Open projects, edit drafts, and preview your changes. STT, media analysis, and other AI features may require a Selects subscription or credits purchased from the Selects dashboard.",
+    "privacyPolicyURL": "https://cutback.video/privacy-policy",
+    "shortDescription": "Edit videos with Selects",
+    "supportURL": "https://help.cutback.video",
+    "termsOfServiceURL": "https://cutback.video/terms-of-service",
+    "websiteURL": "https://www.tryselects.com"
+  },
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills"
+}

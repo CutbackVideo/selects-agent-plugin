@@ -1,0 +1,20 @@
+{
+  "name": "selects",
+  "interface": {
+    "displayName": "Selects"
+  },
+  "plugins": [
+    {
+      "name": "selects-editor",
+      "source": {
+        "source": "local",
+        "path": "./codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    }
+  ]
+}
