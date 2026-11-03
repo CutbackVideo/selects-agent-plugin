@@ -49,7 +49,11 @@ The URL fragment carries a single-use login code valid for 60 seconds, so do
 not repeat the URL in chat, notes or reports.
 
 - **Claude desktop app** with the built-in browser tools: open it in the
-  Browser pane (`navigate` or `preview_start` with the URL) so the user can watch.
+  Browser pane (`navigate` or `preview_start` with the URL). Opening a URL does
+  not put the pane on screen, so right after navigating also show it to the
+  user: call the app's pane tool (`show_pane` with `pane: "preview"`) when it is
+  available, and take a screenshot to confirm the editor is visible there.
+  If no such tool exists, tell the user to open the Browser pane on the right.
 - **Terminal CLI**: open it in the user's default browser (`open "<url>"` on
   macOS, `xdg-open` on Linux, `start "" "<url>"` on Windows).
 
@@ -60,6 +64,13 @@ live `open_selects` schema accepts `controlSessionId`, renew the same session an
 navigate the existing tab to the new URL; if the result says
 `browserHandoff.required: false`, the tab is already bound, so keep using it.
 Otherwise call `open_selects` again. Never reuse an expired URL.
+
+A session stays bound to the tab that first connected it. If that tab is gone
+(for example the Browser pane was closed and the session reports
+`disconnected`), a renewed link opened in a new tab is rejected at pairing, so
+call `open_selects({})` for a new session and open it in the new tab. Check the
+old session's in-flight execution with `get_execution` first, and tell the user
+that closing the Browser pane ends the connection.
 
 The editor exchanges the launch code for its own Firebase sign-in when needed,
 or verifies its existing account without switching it. The Browser pane and the

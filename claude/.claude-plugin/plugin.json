@@ -1,7 +1,7 @@
 {
   "name": "selects",
   "displayName": "Selects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect to the Selects production browser editor and edit videos through the Selects SDK from Claude Code.",
   "author": {
     "name": "Cutback",
