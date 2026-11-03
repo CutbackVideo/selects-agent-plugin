@@ -54,11 +54,19 @@ Claude Code plugin uses a pre-registered public PKCE client. Claude Code signs
 in through `http://localhost:<callbackPort>/callback`; the client ID and port
 in `claude/.claude-plugin/plugin.json` must match the registration.
 
-```sh
-# Prints the client definition without changing anything
-node tools/register-ory-client.mjs
+The production client **Selects for Claude Code** was created in Ory Console
+(project *Selects production*) with the same settings as the production Codex
+client: public, no client secret, authorization code + refresh token, scope
+`selects:control offline_access openid`, audience
+`https://selects-api.cutback.video/mcp-gateway/mcp`, token format inherited from
+the project's JWT default, and redirect URIs `http://localhost:17528/callback`
+and `http://127.0.0.1:17528/callback`.
 
-# Registers it (requires an Ory project API key)
+`tools/register-ory-client.mjs` prints the same definition and can check it or
+create it in another Ory project with an API key:
+
+```sh
+node tools/register-ory-client.mjs
 ORY_API_KEY=... node tools/register-ory-client.mjs --apply
 ```
 

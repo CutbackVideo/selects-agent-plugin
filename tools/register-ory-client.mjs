@@ -3,8 +3,14 @@
 //
 // The gateway's Ory project has no dynamic client registration, so Claude Code
 // needs a pre-registered public (PKCE, no secret) client. The fields mirror the
-// gateway's own registration script (cutback-workflow apps/mcp_gateway/scripts/ory.py)
-// except for the redirect URIs, which follow Claude Code's callback format.
+// production Codex client (selects-production-desktop-20261101) except for the
+// redirect URIs, which follow Claude Code's callback format. Like that client,
+// the token format and lifespans are inherited from the project's global JWT
+// configuration rather than set per client.
+//
+// The production client was created in Ory Console on 2026-11-03, which assigns
+// its own client ID; plugin.json carries that ID. Use this script to check the
+// registered client or to create the same client in another Ory project.
 //
 // Usage:
 //   node tools/register-ory-client.mjs            # dry run: print the definition
@@ -29,7 +35,7 @@ const clientDefinition = {
   client_name: "Selects for Claude Code",
   grant_types: ["authorization_code", "refresh_token"],
   response_types: ["code"],
-  scope: "openid offline_access selects:control",
+  scope: "selects:control offline_access openid",
   // The gateway's consent step requires its /mcp URL as the token audience.
   audience: [server.url],
   // Claude Code uses localhost; v2.1.229 briefly sent 127.0.0.1 instead.
@@ -38,9 +44,6 @@ const clientDefinition = {
     `http://127.0.0.1:${callbackPort}/callback`,
   ],
   token_endpoint_auth_method: "none",
-  access_token_strategy: "jwt",
-  authorization_code_grant_access_token_lifespan: "5m0s",
-  refresh_token_grant_access_token_lifespan: "5m0s",
 };
 
 function differingFields(existing) {

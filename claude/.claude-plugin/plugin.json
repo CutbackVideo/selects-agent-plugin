@@ -15,7 +15,7 @@
       "type": "http",
       "url": "https://selects-api.cutback.video/mcp-gateway/mcp",
       "oauth": {
-        "clientId": "selects-claude-code-20261103",
+        "clientId": "d1b14154-5e48-43a1-bb6c-2926d9079d85",
         "callbackPort": 17528,
         "scopes": "selects:control"
       }
